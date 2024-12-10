@@ -1,0 +1,9 @@
+#!/bin/bash
+FILES=$(git diff --cached --name-only)
+
+for val in FILES; do
+	if ! [ -s "$val" ] || ! [ "$val" = "*.txt" ]; then
+	 	echo "Error '$val'"
+	 	exit 1
+	 fi
+done
